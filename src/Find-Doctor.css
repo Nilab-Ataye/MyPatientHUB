@@ -1,0 +1,848 @@
+/* ================= GENERAL ================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f8fb;
+    color: #333;
+}
+
+
+/* ================= HEADER ================= */
+
+.doctor-header {
+    background-image: url("images/background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    padding: 25px 60px 45px;
+    position: relative;
+}
+
+
+/* ================= BREADCRUMB ================= */
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 20px;
+}
+
+.breadcrumb i {
+    color: pink;
+}
+
+
+/* ================= PAGE TITLE ================= */
+
+.doctor-header > h2 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 35px;
+}
+
+
+/* ================= HEADER ICONS ================= */
+
+.header-icons {
+    position: absolute;
+    top: 25px;
+    right: 60px;
+    display: flex;
+    gap: 22px;
+}
+.top-search{
+    position: absolute;
+    top:75px;
+    right:50%;
+    width: 220px;
+    height:40px;
+    background-color: #ffffff;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+.top-search input{
+    width: 100%;
+    height:100%;
+    border:none;
+    outline: none;
+    background: transparent;
+    font-size: 13px;
+    color:#555;
+}
+.top-search input::placeholder{
+    color:#999;
+}
+
+.header-icons span {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background-color: #f1f5f9;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: #555;
+    cursor: pointer;
+}
+
+.header-icons span:hover {
+    background-color: #e4edf8;
+    color: #246bce;
+}
+
+
+/* ================= INTRO ================= */
+
+.doctor-intro {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.doctor-intro h1 {
+    font-size: 32px;
+    color: #222;
+    margin-bottom: 10px;
+}
+
+.doctor-intro p {
+    color: #777;
+    font-size: 15px;
+}
+
+
+/* ================= SEARCH BOX ================= */
+
+.search-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+}
+
+.search-box input {
+    width: 350px;
+    height: 35px;
+
+    border: 1px solid #d8dee6;
+    background-color: white;
+    border-radius: 6px;
+
+    padding: 0 18px;
+    font-size: 14px;
+    outline: none;
+}
+
+.search-box input:focus {
+    border-color: pink;
+}
+
+.search-box input::placeholder {
+    color: #999;
+}
+
+
+/* ================= SEARCH BUTTONS ================= */
+
+.search-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 15px;
+    padding: 25px 0;
+
+    background-color: #f5f8fb;
+}
+
+.search-buttons button {
+    width: 150px;
+    height: 45px;
+
+    border: none;
+    border-radius: 6px;
+
+    background-color: hotpink;
+    color: white;
+
+    font-size: 13px;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.search-buttons button:hover {
+    background-color: pink;
+}
+
+
+/* ================= SPECIAL SERVICES ================= */
+
+.special-services {
+    background-color: white;
+    padding: 35px 60px;
+}
+
+.special-services > h2 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 25px;
+    color: #222;
+}
+
+
+/* Service Card */
+
+.service-card {
+    max-width: 900px;
+    margin: 12px auto;
+
+    min-height: 90px;
+    padding: 18px 22px;
+
+    border: 1px solid #e0e5eb;
+    border-radius: 8px;
+
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    background-color: white;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+
+/* Service Icon */
+
+.service-icon {
+    width: 55px;
+    height: 55px;
+
+    border-radius: 50%;
+
+    background-color: #eaf3ff;
+    color: #246bce;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 22px;
+
+    flex-shrink: 0;
+}
+
+
+/* Service Text */
+
+.service-content {
+    flex: 1;
+}
+
+.service-content h3 {
+    font-size: 16px;
+    margin-bottom: 7px;
+    color: #333;
+}
+
+.service-content p {
+    font-size: 13px;
+    color: #888;
+    line-height: 1.5;
+}
+
+
+/* Arrow */
+
+.arrow {
+    color: #777;
+    font-size: 14px;
+}
+
+
+/* ================= SPECIALTY SECTION ================= */
+
+.specialty-section {
+    background-color: #f5f8fb;
+    padding: 35px 60px;
+    text-align: center;
+}
+
+.specialty-section h2 {
+    font-size: 24px;
+    color: #222;
+    margin-bottom: 10px;
+}
+
+.specialty-section > p {
+    font-size: 14px;
+    color: #777;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+
+/* ================= SPECIALTY LIST ================= */
+
+.specialty-list {
+    width: 100%;
+    max-width: 900px;
+
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+
+/* ================= SPECIALTY CARD ================= */
+
+.specialty-item {
+    width: 100%;
+    min-height: 70px;
+
+    padding: 18px 22px;
+
+    background-color: white;
+
+    border: 1px solid #e0e5eb;
+    border-radius: 8px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    text-align: left;
+
+    font-size: 14px;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+
+    cursor: pointer;
+}
+
+.specialty-item:hover {
+    border-color: #246bce;
+}
+
+.specialty-item i {
+    color: #246bce;
+    font-size: 12px;
+}
+
+
+/* ================= FOOTER ================= */
+
+.footer {
+    background-color: white;
+
+    color: #777;
+
+    padding: 25px 60px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.footer p {
+    font-size: 12px;
+    color: #777;
+    margin:0;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.footer-links a {
+    color: #777;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.footer-links a:hover {
+    color: #444;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+
+    .doctor-header {
+        padding: 20px;
+    }
+
+    .header-icons {
+        right: 20px;
+    }
+
+    .search-box {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .search-box input {
+        width: 100%;
+        max-width: 450px;
+    }
+
+    .special-services,
+    .specialty-section {
+        padding: 30px 20px;
+    }
+
+    .specialty-list {
+        width: 100%;
+    }
+
+    .footer {
+        flex-direction: column;
+        text-align: center;
+    }
+
+}
+*{
+  box-sizing:border-box;}
+  html{
+    width:100%;
+    min-height:100%;
+    scroll-behavior:smooth;
+  }
+  body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-width: 320px;
+    overflow-x:hidden ;
+  }
+  img,video{
+    max-width:100%;
+    height: auto;
+  }
+  /*Tables*/
+  @media screen and (max-width:1024px){
+    .container{
+      max-width: 100%;
+      padding-left:15px;
+      padding-right: 15px;
+    }
+  }
+  /*Mobile Devices*/
+  @media screen and (max-width:768px){
+    body{
+      font-size:14px;
+    }
+    .container{
+      width:100%;
+      padding:10px;
+    }
+    img{
+      max-width: 100%;
+      height:auto;
+    }
+  }
+/*Small Mobile Devies*/
+@media screen and (max-width:480px){
+  body{
+    font-size: 13px;
+  }
+  .container{
+    padding:8px;
+  }
+}
+/* ================= DOCTOR PAGE LAYOUT ================= */
+
+.doctor-header {
+    border-radius: 16px;
+    margin: 25px 25px 0;
+    padding: 25px 32px 40px;
+    background-size: cover;
+    background-position: center;
+}
+
+/* ================= BREADCRUMB ================= */
+
+.breadcrumb {
+    color: white;
+    margin-bottom: 8px;
+}
+
+.breadcrumb i {
+    color: white;
+}
+
+.doctor-header > h2 {
+    color: white;
+    margin-bottom: 0;
+    font-size: 16px;
+}
+
+/* ================= TOP SEARCH ================= */
+
+.top-search {
+    top: 18px;
+    right: 220px;
+    width: 220px;
+    height: 42px;
+}
+
+/* ================= HEADER ICONS ================= */
+
+.header-icons {
+    top: 20px;
+    right: 25px;
+    align-items: center;
+    gap: 12px;
+}
+
+.header-icons span {
+    background: transparent;
+    color: white;
+}
+
+.header-icons span:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+}
+
+/* ================= DOCTOR INTRO ================= */
+
+.doctor-intro {
+    margin-top: 45px;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.doctor-intro h1 {
+    color: white;
+    font-size: 36px;
+    margin-bottom: 8px;
+}
+
+.doctor-intro p {
+    color: white;
+    font-size: 16px;
+}
+
+/* ================= SEARCH FORM ================= */
+
+.search-box {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-box input {
+    width: 250px;
+    height: 42px;
+    border-radius: 10px;
+}
+
+/* ================= SEARCH BUTTONS ================= */
+
+.search-buttons {
+    flex-direction: row;
+    gap: 15px;
+    padding: 0;
+    background: transparent;
+    position: relative;
+    margin-top: -110px;
+    padding-bottom: 65px;
+    pointer-events: none;
+}
+
+.search-buttons button {
+    width: 105px;
+    height: 42px;
+    border-radius: 10px;
+    background: #13b8e8;
+    color: #fff;
+    pointer-events: auto;
+}
+
+/* ================= SPECIAL SERVICES ================= */
+
+.special-services {
+    margin: 0 25px 45px;
+    padding: 28px 32px 35px;
+    border-radius: 16px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.04);
+}
+
+.special-services > h2 {
+    color: #46556a;
+    margin-bottom: 20px;
+}
+
+.special-services {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 22px;
+    row-gap: 18px;
+}
+
+.special-services > h2 {
+    grid-column: 1 / -1;
+}
+
+.service-card {
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+    margin: 0;
+    min-height: 90px;
+    padding: 14px 18px;
+    gap: 12px;
+    border-radius: 7px;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.12);
+}
+
+.service-icon {
+    background: white;
+    color: #ef4b39;
+    font-size: 28px;
+}
+
+.service-content h3 {
+    font-size: 18px;
+}
+
+.service-content p {
+    color: #586477;
+    font-size: 14px;
+}
+
+/* ================= SPECIALTY SECTION ================= */
+
+.specialty-section {
+    margin: 0 25px 40px;
+    padding: 30px 32px 35px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.04);
+}
+
+.specialty-section h2 {
+    color: #46556a;
+}
+
+.specialty-section > p {
+    color: #444;
+    font-size: 18px;
+}
+
+/* ================= SPECIALTY GRID ================= */
+
+.specialty-list {
+    max-width: none;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px 22px;
+}
+
+.specialty-item {
+    min-width: 0;
+    min-height: 60px;
+    padding: 15px 18px;
+    border-radius: 7px;
+    font-size: 18px;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.12);
+}
+
+.specialty-item:hover {
+    border-color: #d414a1;
+}
+
+.specialty-item i {
+    color: #888;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+
+    .doctor-header {
+        margin: 12px;
+        padding: 20px;
+    }
+
+    .top-search {
+        position: relative;
+        top: auto;
+        right: auto;
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .header-icons {
+        position: relative;
+        top: auto;
+        right: auto;
+        justify-content: flex-end;
+        margin-top: 10px;
+    }
+
+    .doctor-intro {
+        margin-top: 30px;
+    }
+
+    .doctor-intro h1 {
+        font-size: 27px;
+    }
+
+    .search-box {
+        flex-direction: column;
+    }
+
+    .search-box input {
+        width: 100%;
+    }
+
+    .search-buttons {
+        margin-top: 0;
+        padding: 15px 0 25px;
+    }
+
+    .special-services {
+        display: grid;
+        grid-template-columns: 1fr;
+        margin: 0 12px 25px;
+        padding: 22px 15px;
+    }
+
+    .special-services > h2 {
+        grid-column: 1;
+    }
+
+    .specialty-section {
+        margin: 0 12px 25px;
+        padding: 22px 15px;
+    }
+
+    .specialty-list {
+        grid-template-columns: 1fr;
+    }
+
+    .specialty-item {
+        font-size: 15px;
+    }
+
+    .footer {
+        flex-direction: column;
+        gap: 15px;
+        padding: 25px 15px;
+    }
+}
+/* Doctor Banner */
+
+.doctor-banner {
+    background-image: url("images/background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    margin: 20px 25px 40px;
+    padding: 35px 25px;
+    border-radius: 16px;
+}
+
+/* Doctor Intro */
+
+.doctor-banner .doctor-intro {
+    margin: 0 0 25px;
+    text-align: center;
+}
+
+.doctor-banner .doctor-intro h1,
+.doctor-banner .doctor-intro p {
+    color: white;
+}
+
+/* Search Form */
+
+.doctor-search-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.doctor-search-form input {
+    width: 250px;
+    height: 42px;
+    padding: 0 12px;
+
+    border: none;
+    outline: none;
+    border-radius: 9px;
+    background: white;
+    font-size: 14px;
+}
+
+.doctor-search-form button {
+    height: 42px;
+    min-width: 105px;
+    padding: 0 18px;
+
+    border: none;
+    border-radius: 9px;
+
+    background: #13b8e8;
+    color: white;
+
+    font-size: 12px;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.doctor-search-form button:hover {
+    background: #079bc7;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+    .doctor-banner {
+        margin: 15px 12px 25px;
+        padding: 25px 15px;
+    }
+
+    .doctor-search-form {
+        flex-direction: column;
+    }
+
+    .doctor-search-form input,
+    .doctor-search-form button {
+        width: 100%;
+        max-width: 450px;
+    }
+}

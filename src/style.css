@@ -1,0 +1,732 @@
+/* ================= GENERAL ================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: white;
+    color: gray;
+}
+
+
+/* ============ DASHBOARD ======= */
+
+.dashboard {
+    display: flex;
+    height:100vh;
+    overflow:hidden;
+    
+}
+
+
+/* ============ SIDEBAR ========== */
+
+.sidebar {
+    
+    width: 280px;
+    min-width:280px;
+    height: 100vh;
+    background: white;
+    padding: 20px;
+    transition: 0.3s ease;
+    overflow-y: auto;
+    flex-shrink: 0;
+}
+
+
+/* ======== LOGO ========= */
+
+.logo {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid #eeeeee;
+    margin-bottom: 20px;
+}
+
+
+/* Logo circle */
+
+.logo-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+
+    background: linear-gradient(
+        135deg,
+       purple
+        
+    );
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+    font-size: 20px;
+
+    box-shadow: 0 5px 15px rgba(233, 0, 135, 0.25);
+}
+
+
+/* Logo text */
+
+.logo-text {
+    font-size: 18px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.my {
+    color: red;
+}
+
+.hub {
+    color: pink;
+}
+
+
+/* ==== Menu========= */
+
+.menu a {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    padding: 13px 15px;
+
+    margin: 5px 0;
+
+    border-radius: 10px;
+
+    text-decoration: none;
+
+    color: #667085;
+
+    transition: 0.3s;
+}
+
+.menu a i {
+    width: 22px;
+    text-align: center;
+}
+
+.menu a:hover {
+    background: #f7eaf4;
+    color: blue;
+}
+
+.menu a.active {
+    background: #f7eaf4;
+    color:#98a2b3;
+}
+
+
+/* ======= HELP ======== */
+
+.help-box {
+    margin-top: 35px;
+
+    height: 75px;
+
+    border-radius: 15px;
+
+    background: linear-gradient(
+        135deg,
+        pink,
+        purple
+    );
+
+    color: white;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 15px;
+}
+
+.help-icon {
+    width: 35px;
+    height: 35px;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.2);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.help-box strong {
+    display: block;
+    font-size: 13px;
+}
+
+.help-box small {
+    font-size: 10px;
+    opacity: 0.8;
+}
+
+
+/* ============= MAIN ========= */
+
+.main {
+    flex: 1;
+    min-width: 0;
+    overflow-y: auto;
+}
+
+
+/* ====== HEADER =========== */
+
+.header {
+    height: 100px;
+
+    background: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 20px 35px;
+
+    box-shadow:
+        0 1px 8px rgba(0,0,0,0.05);
+        position:sticky;
+        top:0;
+        z-index:100;
+}
+
+
+/* ========== HEADER LEFT ========= */
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.breadcrumb {
+    font-size: 13px;
+    color: #98a2b3;
+    margin-bottom: 6px;
+}
+
+.header-left h3 {
+    font-size: 16px;
+}
+
+
+/* ============= MENU BUTTON ======= */
+
+.menu-btn {
+    width: 40px;
+    height: 40px;
+
+    border: none;
+
+    background: #f7f8fa;
+
+    border-radius: 8px;
+
+    color: #667085;
+
+    font-size: 19px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.menu-btn:hover {
+    background: #f7eaf4;
+    color: #e90087;
+}
+
+
+/* ======= HEADER RIGHT ========== */
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.search {
+    width: 210px;
+
+    border: 1px solid #e4e7ec;
+
+    border-radius: 9px;
+
+    padding: 9px 14px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+}
+
+.search i {
+    color: #98a2b3;
+}
+
+.search input {
+    border: none;
+    outline: none;
+    width: 100%;
+}
+
+.logout {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    font-size: 13px;
+
+    cursor: pointer;
+}
+
+.header-icon {
+    cursor: pointer;
+    color: #667085;
+}
+
+
+/* === CONTENT ====== */
+
+.content {
+    padding: 30px;
+}
+
+.content h1 {
+    font-size: 24px;
+    margin-bottom: 25px;
+}
+
+
+/* ======= CARDS =========== */
+
+.cards {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 20px;
+}
+
+
+/* ========= CARD ================= */
+
+.card {
+    background: white;
+
+    border-radius: 15px;
+
+    padding: 22px;
+
+    min-height: 340px;
+
+    box-shadow:
+        0 2px 12px rgba(0,0,0,0.05);
+}
+
+.card h3 {
+    font-size: 16px;
+
+    margin-bottom: 20px;
+
+    color: #344054;
+}
+
+
+/* ================= CARD CONTENt====== */
+
+.card-content {
+    display: flex;
+
+    align-items: center;
+
+    gap: 25px;
+}
+
+
+/* ========= DONUT ================= */
+
+.donut {
+    width: 155px;
+    height: 155px;
+
+    border-radius: 50%;
+
+    position: relative;
+
+    flex-shrink: 0;
+}
+
+.donut::after {
+    content: "";
+
+    position: absolute;
+
+    width: 90px;
+    height: 90px;
+
+    background: white;
+
+    border-radius: 50%;
+
+    top: 32.5px;
+    left: 32.5px;
+}
+
+
+/* Clinic */
+
+.clinic-chart {
+    background: conic-gradient(
+        blue 0 32%,
+        pink 32% 42%,
+        yellow 42% 62%,
+        green 62% 98%,
+        purple 98% 100%
+    );
+}
+
+
+/* Pharmacy */
+
+.pharmacy-chart {
+    background: conic-gradient(
+        gray 0 28%,
+        red 28% 48%,
+        yellow 48% 58%,
+        brown 58% 75%,
+        black 75% 100%
+    );
+}
+
+
+/* Market */
+
+.market-chart {
+    background: conic-gradient(
+        blue 0 30%,
+        black 30% 45%,
+        pink 45% 65%,
+        gray 65% 100%
+    );
+}
+
+
+/* ================= LIST === */
+
+.card-list {
+    flex: 1;
+}
+
+.card-list div {
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 10px;
+
+    padding: 12px 0;
+
+    border-bottom: 1px solid whitesmoke;
+
+    font-size: 12px;
+}
+
+.card-list span {
+    color: gray;
+}
+
+.card-list b {
+    color: gray;
+}
+
+
+/* ======== BUTTON ================= */
+
+.details {
+    margin-top: 18px;
+
+    padding: 10px 25px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: gray;
+
+    color: white;
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.details:hover {
+    background: #899bbd;
+}
+
+
+/* ================= HEALTH ======= */
+
+.health-number {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.health-number span {
+    color: greenyellow;
+    font-size: 13px;
+}
+
+
+/* ========= GRAPH ================= */
+
+.graph {
+    height: 200px;
+
+    margin-top: 20px;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.grid-line {
+    position: absolute;
+
+    width: 100%;
+
+    border-top: 1px dashed white;
+}
+
+.grid-line.one {
+    top: 30%;
+}
+
+.grid-line.two {
+    top: 55%;
+}
+
+.grid-line.three {
+    top: 80%;
+}
+
+
+/* Health graph line */
+
+.health-line {
+    position: absolute;
+
+    width: 120%;
+
+    height: 100px;
+
+    left: -10%;
+
+    top: 60px;
+
+    border-top: 3px solid #47527c;
+
+    border-radius: 50%;
+
+    transform: rotate(-4deg);
+}
+
+
+/* =============== SIDEBAR HIDDEN ======= */
+
+/* Collapsed Sidebar */
+
+.sidebar.hide {
+    width: 80px;
+    min-width: 80px;
+    padding: 20px 10px;
+    overflow-x: hidden;
+}
+
+/* Hide logo text */
+
+.sidebar.hide .logo-text {
+    display: none;
+}
+
+/* Center logo icon */
+
+.sidebar.hide .logo {
+    justify-content: center;
+}
+
+/* Hide menu text */
+
+.sidebar.hide .menu a span {
+    display: none;
+}
+
+/* Center menu icons */
+
+.sidebar.hide .menu a {
+    justify-content: center;
+    padding: 13px 0;
+}
+
+.sidebar.hide .menu a i {
+    margin: 0;
+}
+
+/* Hide help text */
+
+.sidebar.hide .help-box > div:last-child {
+    display: none;
+}
+
+/* Center help icon */
+
+.sidebar.hide .help-box {
+    justify-content: center;
+    padding: 10px 0;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 1000px) {
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .header-right .logout,
+    .header-right .header-icon {
+        display: none;
+    }
+}
+
+
+@media (max-width: 650px) {
+
+    .sidebar {
+        position: fixed;
+
+        left: 0;
+        top: 0;
+
+        z-index: 1000;
+    }
+
+    .header {
+        padding: 15px;
+    }
+
+    .content {
+        padding: 20px 15px;
+    }
+
+    .search {
+        width: 150px;
+    }
+
+    .card-content {
+        flex-direction: column;
+    }
+}
+/* ================= FOOTER ================= */
+
+.footer {
+    min-height: 80px;
+
+    padding: 25px 35px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    background: white;
+
+    color: gray;
+
+    font-size: 13px;
+}
+
+
+/* Heart */
+
+.heart {
+    color: #667085;
+
+    font-size: 16px;
+}
+
+
+/* MyPiHUB */
+
+.footer strong {
+    color: gray;
+}
+
+
+/* Footer links */
+
+.footer-links {
+    display: flex;
+
+    align-items: center;
+
+    gap: 35px;
+}
+
+
+/* Links */
+
+.footer-links a {
+    text-decoration: none;
+
+    color: #7b8494;
+
+    transition: 0.3s;
+}
+
+
+/* When mouse goes over link */
+
+.footer-links a:hover {
+    color: #e90087;
+}
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 530px) {
+
+    .footer {
+        flex-direction: column;
+
+        gap: 20px;
+
+        text-align: center;
+    }
+
+    .footer-links {
+        gap: 20px;
+    }
+
+}

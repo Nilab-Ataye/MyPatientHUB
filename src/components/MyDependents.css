@@ -1,0 +1,615 @@
+/* Main Page */
+.dependents-page {
+  padding: 30px;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* Heading */
+.dependents-heading {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.dependents-heading h1 {
+  font-size: 28px;
+  font-weight: 600;
+  color: #344767;
+  margin: 0 0 12px;
+}
+
+.dependents-heading > p {
+  font-size: 16px;
+  color: #7b809a;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Three Steps */
+.dependents-steps {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 900px;
+  margin: 40px auto;
+}
+
+.dependents-steps .step {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+/* Horizontal connecting line */
+.dependents-steps .step:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 6.5px;
+  left: 50%;
+  width: 100%;
+  height: 3px;
+  background-color: #d9d9d9;
+  z-index: 0;
+}
+
+/* Dots */
+.dependents-steps .step-dot {
+  display: block;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: #d9d9d9;
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+}
+
+/* Active dot */
+.dependents-steps .step-dot.active {
+  background-color: #000000;
+}
+
+/* Labels */
+.dependents-steps .step p {
+  font-size: 13px;
+  line-height: 1.5;
+  color: #7b809a;
+  margin: 12px 0 0;
+  max-width: 150px;
+}
+
+@media (max-width: 600px) {
+  .dependents-steps .step-dot {
+    width: 12px;
+    height: 12px;
+  }
+
+  .dependents-steps .step:not(:last-child)::after {
+    top: 4.5px;
+  }
+
+  .dependents-steps .step p {
+    font-size: 10px;
+  }
+}
+/* Dependents Registration Form */
+.dependents-form {
+width: 100%;
+max-width: 900px;
+margin: 35px auto;
+padding: 30px;
+background-color: #ffffff;
+border-radius: 12px;
+box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+box-sizing: border-box;
+}
+
+.dependents-form h2 {
+font-size: 20px;
+font-weight: 600;
+color: #344767;
+margin: 0 0 25px;
+}
+
+.dependents-form-row {
+display: flex;
+flex-direction: column;
+gap: 22px;
+margin-bottom: 22px;
+}
+
+.dependents-form .form-group {
+display: flex;
+flex-direction: column;
+flex: 1;
+min-width: 0;
+margin-bottom: 22px;
+}
+
+.dependents-form-row .form-group {
+margin-bottom: 0;
+}
+
+.dependents-form .form-group label {
+font-size: 14px;
+font-weight: 600;
+color: #344767;
+margin-bottom: 9px;
+}
+
+.dependents-form input,
+.dependents-form select {
+width: 100%;
+min-width: 0;
+height: 45px;
+padding: 0 12px;
+border: 1px solid #d9dce3;
+border-radius: 7px;
+background-color: #ffffff;
+color: #344767;
+font-size: 14px;
+outline: none;
+box-sizing: border-box;
+}
+
+.dependents-form input:focus,
+.dependents-form select:focus {
+border-color: #8b5cf6;
+box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.12);
+}
+
+.dependents-form input::placeholder {
+color: #a0a5b5;
+}
+
+.dependents-form .birth-date-fields {
+display: flex;
+gap: 10px;
+width: 100%;
+}
+
+.dependents-form .birth-date-fields select {
+flex: 1;
+}
+
+.dependents-next-btn {
+display: block;
+min-width: 120px;
+padding: 12px 28px;
+margin: 0 0 0 auto;
+border: none;
+border-radius: 7px;
+background:  linear-gradient(
+    90deg,
+    #ec008c 0%,
+    #b315c7 100%
+  );
+color: #ffffff;
+font-size: 14px;
+font-weight: 600;
+cursor: pointer;
+transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.dependents-next-btn:hover {
+transform: translateY(-2px);
+box-shadow: 0 5px 12px rgba(139, 92, 246, 0.25);
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+.dependents-form {
+padding: 20px 15px;
+}
+
+.dependents-form-row {
+flex-direction: column;
+gap: 22px;
+}
+
+.dependents-form h2 {
+font-size: 18px;
+}
+
+.dependents-form .birth-date-fields {
+gap: 6px;
+}
+
+.dependents-form .birth-date-fields select {
+padding: 0 5px;
+font-size: 12px;
+}
+}
+/* Center the form fields and reduce their width */
+.dependents-form-row,
+.dependents-form > .form-group {
+width: 100%;
+max-width: 500px;
+margin-left: auto;
+margin-right: auto;
+}
+
+.dependents-form-row .form-group {
+width: 100%;
+}
+
+.dependents-form input,
+.dependents-form select {
+width: 100%;
+max-width: 100%;
+box-sizing: border-box;
+}
+.dependents-form .form-group label{
+    text-align: left;
+    align-self: flex-start;
+}
+/* First step: active black */
+.dependents-steps .step-dot.active {
+  background-color: #000000;
+}
+
+/* Second step: active black */
+.dependents-steps .step-dot.active-black {
+  background-color: #000000;
+}
+
+/* Completed first step */
+.dependents-steps .step-dot.completed {
+  background-color: #000000;
+}
+
+/* Connecting line becomes black when the next step is active */
+.dependents-steps .step.line-active:not(:last-child)::after {
+  background-color: #000000;
+}
+.dependents-steps .step.line-active:not(:last-child)::after {
+background-color: #000000 !important;
+height: 3px;
+}
+.dependents-steps .step.line-active:not(:last-child)::after {
+  background-color: #000000 !important;
+  height: 3px;
+}
+.dependents-steps .step-dot.active-black {
+  background-color: #000000 !important;
+}
+.dependents-back-btn {
+display: block;
+min-width: 120px;
+height:45px;
+padding: 12px 28px;
+margin: 0 auto 0 0;
+border: none;
+border-radius: 7px;
+background:  linear-gradient(
+    90deg,
+    #ec008c 0%,
+    #b315c7 100%
+  );
+color: #ffffff;
+font-size: 14px;
+font-weight: 600;
+cursor: pointer;
+box-sizing: border-box;
+transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.dependents-back-btn:hover {
+transform: translateY(-2px);
+box-shadow: 0 5px 12px rgba(139, 92, 246, 0.25);
+}
+.dependents-next-btn,
+.dependents-back-btn{
+  height: 45px;
+  box-sizing: border-box;
+}
+.dependents-buttons{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width:100%;
+  margin-top: 25px;
+}
+
+.plans-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 17px;
+  margin-bottom: 24px;
+}
+
+.plan-card {
+  background: #fff;
+  border-radius: 24px;
+  padding: 38px 44px 40px;
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.22);
+  color: #3b4a68;
+}
+
+.plan-card h3 {
+  margin: 0 0 18px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.plan-card hr {
+  border: none;
+  border-top: 1px solid #f0f0f0;
+  margin: 0 0 18px;
+}
+
+.plan-card ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.plan-card li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 17px;
+  line-height: 1.6;
+  margin-bottom: 4px;
+}
+
+.plan-check {
+  display: inline-block;
+  width: 20px;
+  color: #b5179e;
+  font-weight: 700;
+  font-size: 18px;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .plans-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* ================= DEPENDENTS RESPONSIVE ================= */
+
+/* Tablet */
+@media (min-width: 601px) and (max-width: 1024px) {
+
+  .dependents-page {
+    padding: 24px 18px;
+  }
+
+  .dependents-heading {
+    margin-bottom: 28px;
+  }
+
+  .dependents-steps {
+    max-width: 760px;
+    margin: 32px auto;
+  }
+
+  .dependents-steps .step p {
+    font-size: 12px;
+    padding: 0 5px;
+  }
+
+  .dependents-form {
+    max-width: 760px;
+    padding: 26px 24px;
+  }
+
+  .dependents-form-row,
+  .dependents-form > .form-group {
+    max-width: 480px;
+  }
+
+  .plans-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .plan-card {
+    padding: 28px 22px;
+  }
+
+  .plan-card h3 {
+    font-size: 18px;
+  }
+
+  .plan-card li {
+    font-size: 15px;
+    gap: 8px;
+  }
+}
+
+
+/* Mobile */
+@media (max-width: 600px) {
+
+  .dependents-page {
+    padding: 18px 12px;
+    min-height: 100vh;
+  }
+
+  .dependents-heading {
+    margin-bottom: 24px;
+  }
+
+  .dependents-heading h1 {
+    font-size: 24px;
+    line-height: 1.3;
+  }
+
+  .dependents-heading > p {
+    font-size: 14px;
+  }
+
+  /* Three registration steps */
+  .dependents-steps {
+    width: 100%;
+    margin: 28px auto;
+  }
+
+  .dependents-steps .step {
+    min-width: 0;
+    padding: 0 3px;
+  }
+
+  .dependents-steps .step-dot {
+    width: 12px;
+    height: 12px;
+  }
+
+  .dependents-steps .step:not(:last-child)::after {
+    top: 4.5px;
+  }
+
+  .dependents-steps .step p {
+    max-width: 110px;
+    font-size: 10px;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+  }
+
+  /* Registration form */
+  .dependents-form {
+    width: 100%;
+    max-width: 100%;
+    margin: 25px auto;
+    padding: 22px 14px;
+    border-radius: 10px;
+  }
+
+  .dependents-form h2 {
+    font-size: 18px;
+    line-height: 1.4;
+    margin-bottom: 22px;
+  }
+
+  .dependents-form-row,
+  .dependents-form > .form-group {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .dependents-form-row {
+    gap: 18px;
+    margin-bottom: 18px;
+  }
+
+  .dependents-form .form-group {
+    width: 100%;
+    margin-bottom: 18px;
+  }
+
+  .dependents-form-row .form-group {
+    margin-bottom: 0;
+  }
+
+  .dependents-form .form-group label {
+    font-size: 13px;
+    margin-bottom: 8px;
+  }
+
+  .dependents-form input,
+  .dependents-form select {
+    width: 100%;
+    min-width: 0;
+    height: 44px;
+    font-size: 14px;
+  }
+
+  /* Birth date fields */
+  .dependents-form .birth-date-fields {
+    display: flex;
+    width: 100%;
+    gap: 5px;
+  }
+
+  .dependents-form .birth-date-fields select {
+    flex: 1 1 0;
+    width: 0;
+    min-width: 0;
+    padding: 0 4px;
+    font-size: 12px;
+  }
+
+  /* Next and Back buttons */
+  .dependents-buttons {
+    gap: 12px;
+    margin-top: 22px;
+  }
+
+  .dependents-next-btn,
+  .dependents-back-btn {
+    min-width: 0;
+    width: 48%;
+    height: 44px;
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+
+  /* Family care plans */
+  .plans-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+  }
+
+  .plan-card {
+    width: 100%;
+    min-width: 0;
+    padding: 25px 20px;
+    border-radius: 18px;
+  }
+
+  .plan-card h3 {
+    font-size: 18px;
+  }
+
+  .plan-card li {
+    font-size: 14px;
+    line-height: 1.6;
+    gap: 8px;
+  }
+
+  .plan-check {
+    flex-shrink: 0;
+  }
+}
+
+
+/* Very small mobile screens */
+@media (max-width: 360px) {
+
+  .dependents-page {
+    padding: 16px 8px;
+  }
+
+  .dependents-heading h1 {
+    font-size: 21px;
+  }
+
+  .dependents-form {
+    padding: 18px 10px;
+  }
+
+  .dependents-steps .step p {
+    font-size: 9px;
+  }
+
+  .dependents-buttons {
+    gap: 8px;
+  }
+
+  .dependents-next-btn,
+  .dependents-back-btn {
+    padding: 10px 6px;
+    font-size: 12px;
+  }
+
+  .plan-card {
+    padding: 22px 14px;
+  }
+}
