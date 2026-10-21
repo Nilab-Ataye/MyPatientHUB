@@ -15,6 +15,8 @@ function Header({
   globalSearch = "",
   setGlobalSearch,
   onOpenSettings,
+  onOpenLogin,
+  isSignedIn = false,
   style,
 }) {
   const [showNotifications, setShowNotifications] = useState(false);
@@ -76,9 +78,9 @@ setGlobalSearch(e.target.value)
         <button
           className="header-action"
           type="button"
-          aria-label="My account"
-          title="My account"
-          onClick={onOpenSettings}
+          aria-label={isSignedIn ? "My account" : "Log in"}
+          title={isSignedIn ? "My account" : "Log in"}
+          onClick={onOpenLogin}
         >
           <UserRound size={19} />
         </button>
