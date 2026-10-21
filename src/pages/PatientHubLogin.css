@@ -1,0 +1,318 @@
+/* ==============================
+   RESET
+================================= */
+
+.patient-login-page,
+.patient-login-page * {
+    box-sizing: border-box;
+}
+
+/* ==============================
+   MAIN PAGE
+================================= */
+
+.patient-login-page {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding-top: 5px;
+    background-color: #f5f7f9;
+    font-family: Arial, sans-serif;
+    color: #354052;
+}
+
+/* ==============================
+   WELCOME SECTION
+================================= */
+
+.patient-welcome {
+    width: calc(100% - 22px);
+    height: 365px;
+    margin: 0 auto;
+    padding: 83px 15px 0;
+
+    background-image: url("/images/background.jpg");
+    background-size: cover;
+    background-position: center;
+
+    border-radius: 7px;
+    text-align: center;
+    color: white;
+}
+
+.patient-welcome h1 {
+    font-size: 40px;
+    font-weight: 700;
+    margin: 0 0 10px;
+}
+
+.patient-welcome p {
+    font-size: 15px;
+    font-weight: 400;
+    margin: 0;
+}
+
+/* ==============================
+   LOGIN BOX
+================================= */
+
+.patient-login-box {
+    width: 375px;
+    max-width: calc(100% - 30px);
+
+    margin: -185px auto 0;
+    padding: 24px 20px 40px;
+
+    background-color: white;
+    border-radius: 12px;
+
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+
+    position: relative;
+    z-index: 1;
+}
+
+.patient-login-box h2 {
+    text-align: center;
+    font-size: 17px;
+    color: #354052;
+    margin: 0 0 28px;
+}
+
+/* ==============================
+   SOCIAL LOGIN
+================================= */
+
+.patient-social-login {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 32px;
+}
+
+.patient-social-login button {
+    width: 64px;
+    height: 50px;
+
+    background-color: white;
+    border: 1px solid #eeeeee;
+    border-radius: 5px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+}
+
+.patient-social-login img {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+}
+
+/* ==============================
+   INPUTS
+================================= */
+
+.patient-login-box form input[type="text"],
+.patient-login-box form input[type="password"] {
+    width: 100%;
+    height: 35px;
+
+    border: 1px solid #dcdcdc;
+    border-radius: 6px;
+
+    padding: 0 10px;
+    margin: 0 0 12px;
+
+    font-size: 11px;
+    outline: none;
+}
+
+.patient-login-box form input[type="text"]::placeholder,
+.patient-login-box form input[type="password"]::placeholder {
+    color: #b8b8b8;
+}
+
+.patient-login-box form input[type="text"]:focus,
+.patient-login-box form input[type="password"]:focus {
+    border-color: #bdbdbd;
+}
+
+/* ==============================
+   SIGN IN BUTTON
+================================= */
+
+.patient-sign-in {
+    width: 100%;
+    height: 35px;
+
+    margin-top: 1px;
+    border: none;
+    border-radius: 6px;
+
+    background: linear-gradient(
+        90deg,
+        #ed008c,
+        #a800d4
+    );
+
+    color: white;
+    font-size: 10px;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.patient-sign-in:hover {
+    opacity: 0.9;
+}
+
+/* ==============================
+   LOGIN OPTIONS
+================================= */
+
+.patient-login-options {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+
+    margin-top: 8px;
+    padding: 0 7px;
+
+    font-size: 10px;
+}
+
+.patient-login-options a {
+    color: #8d9299;
+    text-decoration: none;
+}
+
+.patient-login-options label {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+
+    color: #8d9299;
+    white-space: nowrap;
+}
+
+.patient-login-options input[type="checkbox"] {
+    width: 15px;
+    height: 15px;
+    margin: 0;
+    accent-color: #a800d4;
+}
+
+/* ==============================
+   OR DIVIDER
+================================= */
+
+.patient-or {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 18px 0;
+}
+
+.patient-or::before,
+.patient-or::after {
+    content: "";
+    height: 1px;
+    background-color: #eeeeee;
+    flex: 1;
+}
+
+.patient-or span {
+    color: #9da1a7;
+    font-size: 10px;
+}
+
+/* ==============================
+   SIGN UP BUTTON
+================================= */
+
+.patient-sign-up {
+    width: 100%;
+    height: 35px;
+
+    border: none;
+    border-radius: 6px;
+
+    background: linear-gradient(
+        90deg,
+        #20c4e9,
+        #2874ed
+    );
+
+    color: white;
+    font-size: 10px;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.patient-sign-up:hover {
+    opacity: 0.9;
+}
+
+/* ==============================
+   FOOTER
+================================= */
+
+.patient-login-footer {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 38px;
+
+    margin-top: 47px;
+    padding: 0 15px 34px;
+}
+
+.patient-login-footer a {
+    color: #929ba5;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.patient-login-footer a:hover {
+    color: #555555;
+}
+
+/* ==============================
+   RESPONSIVE DESIGN
+================================= */
+
+@media (max-width: 480px) {
+
+    .patient-welcome {
+        height: 330px;
+        padding-top: 70px;
+    }
+
+    .patient-welcome h1 {
+        font-size: 27px;
+    }
+
+    .patient-welcome p {
+        font-size: 13px;
+        line-height: 1.5;
+    }
+
+    .patient-login-box {
+        margin-top: -150px;
+        padding: 24px 20px 35px;
+    }
+
+    .patient-login-footer {
+        gap: 18px;
+        margin-top: 35px;
+    }
+}

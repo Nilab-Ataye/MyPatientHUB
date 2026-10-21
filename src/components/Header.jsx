@@ -1,58 +1,81 @@
+import {
+  Menu,
+  Search,
+  Bell,
+  Settings,
+  UserRound,
+} from "lucide-react";
 
-function Header({pageName="Dashboard",
-  searchQuery="",
-  setSearchQuery
+import "./Header.css";
+
+function Header({
+  onMenuClick,
+  globalSearch = "",
+  setGlobalSearch,
+  onSignOut,
+  onOpenSettings,
+  style,
 }) {
-
   return (
-    <header className="header">
-
+    <header className="patient-header" style={style}>
       <div className="header-left">
-
-        <button id="menuBtn" className="menu-btn"
-        onClick={()=>{
-          document.getElementById("sidebar").classList.toggle("hide");
-        }}>
-          <i className="fa-solid fa-bars"></i>
-        </button>
-
-        <div>
-          <p className="breadcrumb">
-            <i className="fa-solid fa-house"></i>
-            / {pageName}
-          </p>
-
-          <h3>{pageName}</h3>
-        </div>
-
+        <h3>MyPatientHUB</h3>
       </div>
 
-      <div className="header-right">
+      <button
+        className="menu-button"
+        type="button"
+        onClick={onMenuClick}
+        aria-label="Toggle sidebar"
+        title="Toggle sidebar"
+      >
+        <Menu size={25} />
+      </button>
 
-        <div className="search">
-          <i className="fa-solid fa-magnifying-glass"></i>
+      <div className="header-right">
+        <div className="header-search">
+          <Search size={17} />
+
           <input
             type="text"
             placeholder="Type here..."
-            value={searchQuery}
-            onChange={(e)=>{
-              if (setSearchQuery) {
-                setSearchQuery(e.target.value);
-              }
-            }}
+            value={globalSearch}
+            onChange={(e)=>
+setGlobalSearch(e.target.value)
+            }
+            aria-label="Search"
           />
         </div>
 
-        <div className="logout">
-          <i className="fa-solid fa-circle-user"></i>
-          <button>log out</button>
-        </div>
+        <button
+          className="header-action"
+          type="button"
+          aria-label="Notifications"
+          title="Notifications"
+        >
+          <Bell size={19} />
+        </button>
 
-        <i className="fa-solid fa-gear header-icon"></i>
-        <i className="fa-solid fa-bell header-icon"></i>
+        <button
+          className="header-action"
+          type="button"
+          aria-label="Settings"
+          title="Settings"
+          onClick={onOpenSettings}
+        >
+          <Settings size={19} />
+        </button>
 
+        <button
+          className="header-action"
+          type="button"
+          aria-label="Sign out"
+          title="Sign out"
+          onClick={onSignOut}
+        >
+          <UserRound size={19} />
+        </button>
       </div>
-
     </header>
   );
 }
