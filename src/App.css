@@ -1,0 +1,108 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f6fa;
+  color: #333333;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.app-layout {
+  min-height: 100vh;
+}
+
+.main-content {
+  min-width: 0;
+}
+
+.main-content.sidebar-offset {
+  margin-left: 250px;
+  transition: margin-left 0.3s ease;
+}
+
+.main-content.sidebar-offset.sidebar-collapsed {
+  margin-left: 78px;
+}
+
+.main-content.sidebar-collapsed .dashboard-page .header {
+  left: 78px;
+}
+
+.main-content.sidebar-collapsed .pharmacy-app .topbar {
+  left: 78px;
+}
+
+.app {
+  min-height: 100vh;
+}
+
+.page-content {
+  min-height: 100vh;
+  min-width: 0;
+
+  margin-left: 250px;
+  padding: 95px 25px 35px;
+
+  transition: margin-left 0.3s ease;
+}
+
+.page-content.sidebar-collapsed {
+  margin-left: 78px;
+}
+
+@media (max-width: 650px) {
+  .main-content.sidebar-offset {
+    margin-left: 220px;
+  }
+
+  .main-content.sidebar-offset.sidebar-collapsed {
+    margin-left: 70px;
+  }
+
+  .main-content .dashboard-page .header {
+    left: 220px;
+  }
+
+  .main-content .patient-app {
+    --sidebar-width: 220px;
+  }
+
+  .main-content.sidebar-collapsed .patient-app {
+    --sidebar-width: 70px;
+  }
+
+  .main-content.sidebar-collapsed .dashboard-page .header,
+  .main-content.sidebar-collapsed .pharmacy-app .topbar {
+    left: 70px;
+  }
+
+  .main-content.sidebar-collapsed .patient-app .top-header {
+    left: 70px;
+  }
+
+  .main-content .pharmacy-app .topbar {
+    left: 220px;
+  }
+
+  .page-content {
+    margin-left: 220px;
+    padding: 90px 15px 25px;
+  }
+
+  .page-content.sidebar-collapsed {
+    margin-left: 70px;
+  }
+}
