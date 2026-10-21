@@ -2,6 +2,11 @@
 
 # React + Vite
 
+## Deploying to Netlify
+
+Import this repository into Netlify. The included `netlify.toml` configures
+the production build command and publish directory.
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:

@@ -1,7 +1,5 @@
 import "./FindMarketPlace.css";
-import React, {useState} from "react";
-import Header from "./Header";
-import Footer from "./Footer";
+import {useState} from "react";
 import products from "../data/product";
 
 
@@ -40,9 +38,6 @@ function FindMarketPlace({ searchQuery="",
   );
     return (
         <div className="marketplace">
-            <Header pageName="MarketPlace"
-            searchQuery={searchQuery}
-            setSearchQuery={setSearchQuery}/>
     {message && 
   <div className="success-message">{message}
   </div>
@@ -165,7 +160,6 @@ function FindMarketPlace({ searchQuery="",
 
 </section>
             </div>
-            <Footer />
         </div>
     );
 }

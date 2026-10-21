@@ -184,6 +184,15 @@ body {
     overflow-y: auto;
 }
 
+.main > .pharmacy-app {
+    min-height: auto;
+}
+
+.main > .pharmacy-app .pharmacy-main {
+    margin-left: 0;
+    padding-top: 35px;
+}
+
 
 /* ====== HEADER =========== */
 
@@ -629,6 +638,12 @@ body {
         top: 0;
 
         z-index: 1000;
+    }
+
+    .sidebar.hide {
+        transform: translateX(-100%);
+        width: 280px;
+        min-width: 280px;
     }
 
     .header {

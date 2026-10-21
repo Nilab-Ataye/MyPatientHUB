@@ -1,4 +1,4 @@
-function DashboardCards() {
+function DashboardCards({ onNavigate }) {
   return (
     <div className="cards">
 
@@ -37,7 +37,13 @@ function DashboardCards() {
           </div>
         </div>
 
-        <button className="details">MORE DETAILS</button>
+        <button
+          className="details"
+          type="button"
+          onClick={() => onNavigate("findClinic")}
+        >
+          MORE DETAILS
+        </button>
       </div>
 
 
@@ -76,7 +82,13 @@ function DashboardCards() {
           </div>
         </div>
 
-        <button className="details">MORE DETAILS</button>
+        <button
+          className="details"
+          type="button"
+          onClick={() => onNavigate("findPharmacy")}
+        >
+          MORE DETAILS
+        </button>
       </div>
 
 

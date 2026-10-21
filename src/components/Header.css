@@ -1,15 +1,14 @@
 .patient-header {
-  position: fixed;
+  position: sticky;
   top: 0;
-  left: 0;
-  right: 0;
-
+  flex-shrink: 0;
+  width: 100%;
   height: 75px;
   padding: 0 25px;
 
   display: flex;
   align-items: center;
-  gap: 22px;
+  gap: 16px;
 
   background: #ffffff;
   border-bottom: 1px solid #eeeeee;
@@ -18,16 +17,21 @@
   z-index: 1000;
 }
 
-.header-left {
-  width: 240px;
+.patient-header-brand {
   flex-shrink: 0;
 }
 
-.header-left h3 {
+.patient-header-brand h3 {
   margin: 0;
   font-size: 18px;
   font-weight: 600;
   color: #292929;
+}
+
+.patient-header-page {
+  flex-shrink: 0;
+  color: #667085;
+  font-size: 14px;
 }
 
 .menu-button {
@@ -52,7 +56,7 @@
   background: #f1f1f5;
 }
 
-.header-right {
+.patient-header-actions {
   margin-left: auto;
 
   display: flex;
@@ -60,7 +64,7 @@
   gap: 15px;
 }
 
-.header-search {
+.patient-header-search {
   width: 180px;
   height: 38px;
 
@@ -75,7 +79,7 @@
   color: #666666;
 }
 
-.header-search input {
+.patient-header-search input {
   width: 100%;
   min-width: 0;
 
@@ -102,25 +106,42 @@
   cursor: pointer;
 }
 
+.header-notification {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 25px;
+  padding: 12px 16px;
+  border: 1px solid #eeeeee;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  color: #333333;
+  font-size: 13px;
+}
+
 @media (max-width: 650px) {
   .patient-header {
     gap: 10px;
     padding: 0 12px;
   }
 
-  .header-left {
-    width: auto;
+  .patient-header-brand h3 {
+    font-size: 15px;
   }
 
-  .header-left h3 {
-    font-size: 14px;
-  }
-
-  .header-search {
+  .patient-header-search {
     width: 125px;
   }
 
-  .header-right {
+  .patient-header-actions {
     gap: 4px;
+  }
+
+  .patient-header-page {
+    display: none;
+  }
+
+  .header-notification {
+    right: 12px;
   }
 }

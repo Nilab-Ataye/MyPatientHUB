@@ -5,20 +5,23 @@ import {
   Settings,
   UserRound,
 } from "lucide-react";
+import { useState } from "react";
 
 import "./Header.css";
 
 function Header({
+  pageName = "Dashboard",
   onMenuClick,
   globalSearch = "",
   setGlobalSearch,
-  onSignOut,
   onOpenSettings,
   style,
 }) {
+  const [showNotifications, setShowNotifications] = useState(false);
+
   return (
     <header className="patient-header" style={style}>
-      <div className="header-left">
+      <div className="patient-header-brand">
         <h3>MyPatientHUB</h3>
       </div>
 
@@ -32,8 +35,10 @@ function Header({
         <Menu size={25} />
       </button>
 
-      <div className="header-right">
-        <div className="header-search">
+      <div className="patient-header-page">{pageName}</div>
+
+      <div className="patient-header-actions">
+        <div         className="patient-header-search">
           <Search size={17} />
 
           <input
@@ -52,6 +57,8 @@ setGlobalSearch(e.target.value)
           type="button"
           aria-label="Notifications"
           title="Notifications"
+          aria-expanded={showNotifications}
+          onClick={() => setShowNotifications((shown) => !shown)}
         >
           <Bell size={19} />
         </button>
@@ -69,13 +76,18 @@ setGlobalSearch(e.target.value)
         <button
           className="header-action"
           type="button"
-          aria-label="Sign out"
-          title="Sign out"
-          onClick={onSignOut}
+          aria-label="My account"
+          title="My account"
+          onClick={onOpenSettings}
         >
           <UserRound size={19} />
         </button>
       </div>
+      {showNotifications && (
+        <div className="header-notification" role="status">
+          You are all caught up.
+        </div>
+      )}
     </header>
   );
 }

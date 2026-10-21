@@ -3,6 +3,9 @@ import { useMemo, useState } from "react";
 import PharmacyTable from "../components/PharmacyTable";
 import "./FindPharmacy.css";
 
+const imageUrl = (filename) =>
+  `${import.meta.env.BASE_URL}images/${filename}`;
+
 const pharmacyData = [
   {
     id: 1,
@@ -10,8 +13,7 @@ const pharmacyData = [
     price: 10,
     pharmacy: "Carry Medical",
     description: "Carry Medical Provide Fresh and Excellent Quality Drugs",
-    image:
-      "/images/12234.jpg",
+    image: imageUrl("12234.jpg"),
   },
   {
     id: 2,
@@ -19,8 +21,7 @@ const pharmacyData = [
     price: 9,
     pharmacy: "Pool Medical",
     description: "High Quality is Our Strength we provide good medicines",
-    image:
-      "/images/12367.jpg",
+    image: imageUrl("12367.jpg"),
   },
   {
     id: 3,
@@ -28,8 +29,7 @@ const pharmacyData = [
     price: 8,
     pharmacy: "OK Phramacy",
     description: "Different people have different taste and various types of tablet.",
-    image:
-      "/images/45678.jpg",
+    image: imageUrl("45678.jpg"),
   },
   {
     id: 4,
@@ -37,8 +37,7 @@ const pharmacyData = [
     price: 11,
     pharmacy: "Hamza Pharma",
     description: "Different people have different taste and various types of medicine.",
-    image:
-      "/images/123456.jpg",
+    image: imageUrl("123456.jpg"),
   },
   {
     id: 5,
@@ -46,8 +45,7 @@ const pharmacyData = [
     price: 7,
     pharmacy: "City Pharmacy",
     description: "Medicines and healthcare products for everyday needs.",
-    image:
-      "/images/98765.jpg",
+    image: imageUrl("98765.jpg"),
   },
   {
     id: 6,
@@ -55,8 +53,7 @@ const pharmacyData = [
     price: 12,
     pharmacy: "Health Medical",
     description: "Healthcare products and medical supplies.",
-    image:
-      "/images/0909.jpg",
+    image: imageUrl("0909.jpg"),
   },
 ];
 

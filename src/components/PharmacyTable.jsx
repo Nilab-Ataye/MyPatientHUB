@@ -1,5 +1,8 @@
-import React, { useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import "./PharmacyTable.css";
+
+const imageUrl = (filename) =>
+  `${import.meta.env.BASE_URL}images/${filename}`;
 
 const medicines = [
   {
@@ -9,8 +12,8 @@ const medicines = [
     pharmacy: "Caring Pharmacy",
     discount: 1,
     price: 5,
-    medicineImage: "/images/12234.jpg",
-    pharmacyImage: "/images/234t.jpg",
+    medicineImage: imageUrl("12234.jpg"),
+    pharmacyImage: imageUrl("234t.jpg"),
   },
   {
     id: "872",
@@ -19,8 +22,8 @@ const medicines = [
     pharmacy: "OK Pharmacy",
     discount: 3,
     price: 9,
-    medicineImage: "/images/45678.jpg",
-    pharmacyImage: "/images/cvb.jpg",
+    medicineImage: imageUrl("45678.jpg"),
+    pharmacyImage: imageUrl("cvb.jpg"),
   },
   {
     id: "0134",
@@ -29,8 +32,8 @@ const medicines = [
     pharmacy: "Hilton Medical",
     discount: 5,
     price: 7,
-    medicineImage: "/images/0909.jpg",
-    pharmacyImage: "/images/iop.jpg",
+    medicineImage: imageUrl("0909.jpg"),
+    pharmacyImage: imageUrl("iop.jpg"),
   },
   {
     id: "113",
@@ -39,8 +42,8 @@ const medicines = [
     pharmacy: "Hinucion Pharma",
     discount: 5,
     price: 9,
-    medicineImage: "/images/12367.jpg",
-    pharmacyImage: "/images/dfgh.jpg",
+    medicineImage: imageUrl("12367.jpg"),
+    pharmacyImage: imageUrl("dfgh.jpg"),
   },
   {
     id: "629",
@@ -49,8 +52,8 @@ const medicines = [
     pharmacy: "Hamza Medical Pharmacy",
     discount: 7,
     price: 20,
-    medicineImage: "/images/123456.jpg",
-    pharmacyImage: "/images/dfg.jpg",
+    medicineImage: imageUrl("123456.jpg"),
+    pharmacyImage: imageUrl("dfg.jpg"),
   },
   {
     id: "634729",
@@ -59,8 +62,8 @@ const medicines = [
     pharmacy: "Food Panda",
     discount: 0,
     price: 20,
-    medicineImage: "/images/98765.jpg",
-    pharmacyImage: "/images/fgh.jpg",
+    medicineImage: imageUrl("98765.jpg"),
+    pharmacyImage: imageUrl("fgh.jpg"),
   },
 ];
 

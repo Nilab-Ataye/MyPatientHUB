@@ -1,3 +1,6 @@
+const imageUrl = (filename) =>
+    `${import.meta.env.BASE_URL}images/${filename}`;
+
 const products =[
 {
     id:"FD001",
@@ -8,7 +11,7 @@ const products =[
     company:"Food Panda",
     service:"Delivery",
     description:"Crispy Chicken, fresh lettuce, cheese and special sauce.",
-    image:"/images/chicken-burger.jpg",
+    image:imageUrl("chicken-burger.jpg"),
 },
 {
     id:"FD002",
@@ -19,7 +22,7 @@ const products =[
     company:"Food Panda",
     service:"Delivery",
     description:"Tender chicken, mozzarella cheese and fresh vegetales.",
-    image:"/images/chicken-pizza.jpg",
+    image:imageUrl("chicken-pizza.jpg"),
 },
 {
         id:"FD003",
@@ -30,7 +33,7 @@ const products =[
     company:"Afghan Kitchen",
     service:"Delivery",
     description:"Traditional Afghan rice with tender meat, carrots and raisins .",
-    image:"/images/qabuli-palaw.jpg",
+    image:imageUrl("qabuli-palaw.jpg"),
 },
 {
         id:"DR001",
@@ -41,7 +44,7 @@ const products =[
     company:"Fresh Juice",
     service:"Delivery",
     description:"Fresh Mango blended with milk and ice.",
-    image:"/images/Mango-smoothie.jpg",
+    image:imageUrl("Mango-smoothie.jpg"),
 },
 {
         id:"DR002",
@@ -52,7 +55,7 @@ const products =[
     company:"Fresh Juice",
     service:"Delivery",
     description:"Smooth coffee with chilled milk and ice",
-    image:"/images/iced-coffee.jpg",
+    image:imageUrl("iced-coffee.jpg"),
 },
 {
         id:"DS001",
@@ -63,7 +66,7 @@ const products =[
     company:"Sweet House",
     service:"Delivery",
     description:"Warm chocolate cake with a rich molten chocolate center.",
-    image:"/images/chocolate-lava-cake.jpg",
+    image:imageUrl("chocolate-lava-cake.jpg"),
 },
 {
         id:"DS002",
@@ -74,7 +77,7 @@ const products =[
     company:"Sweet Land",
     service:"Delivery",
     description:"Creamy Cheesecake topped with fresh strawberries.",
-    image:"/images/strawberry-cake.jpg",
+    image:imageUrl("strawberry-cake.jpg"),
 },
 {
         id:"DS003",
@@ -85,7 +88,7 @@ const products =[
     company:"Coffee House",
     service:"Pick up",
     description:"Classic Italian dessert with coffee, mascarpone and cocoa.",
-    image:"/images/tiramisu.jpg",
+    image:imageUrl("tiramisu.jpg"),
 },
 {
         id:"DS004",
@@ -96,7 +99,7 @@ const products =[
     company:"Sweet House",
     service:"Delivery",
     description:"Soft Chocolate cake covered with rich chocolate cream.",
-    image:"/images/chocolate-cake.jpg",
+    image:imageUrl("chocolate-cake.jpg"),
 },
 {
         id:"DS005",
@@ -107,7 +110,7 @@ const products =[
     company:"Ice Cream Corner",
     service:"Pick up",
     description:"Creamy ice cream in different delicious flavors.",
-    image:"/images/ice-cream.jpg",
+    image:imageUrl("ice-cream.jpg"),
 },{
     id:"DS006",
     name:"Fruit Falooda",
@@ -117,7 +120,7 @@ const products =[
     company:"Sweet House",
     service:"Delivery",
     description:"Refreshing Falooda with milk, fruits and ice cream.",
-    image:"/images/fruit-falooda.jpg",
+    image:imageUrl("fruit-falooda.jpg"),
 }
 ]
 export default products;

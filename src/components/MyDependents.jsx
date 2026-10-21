@@ -1,14 +1,10 @@
-import Header from "./Header";
-import Footer from "./Footer";
 import {useState} from "react";
 import "./MyDependents.css";
 
 function MyDependents() {
     const [currentStep, setCurrentStep]=useState(1);
-  return (
-    <div className="dependents-page">
-      <Header pageName="Dependents" />
-
+    return (
+      <div className="dependents-page">
       <div className="dependents-heading">
         <h1>Build Your Profile</h1>
 
@@ -258,7 +254,6 @@ className="dependents-buttons">
       </div>
     </div>
 )}
-      <Footer />
     </div>
   );
 }

@@ -1,26 +1,18 @@
 import { useState } from "react";
 import"../Find-Doctor.css";
-import Header from "./Header";
-import Footer from "./Footer";
 import DoctorResults from "./DoctorResults";
 
 
 function FindDoctor({
   searchQuery="",
-  setSearchQuery
 }) {
  const [selectedSpecialty, setSelectedSpecialty] = useState("");
  const [showResults, setShowResults]=useState(false)
  const [doctorSearch, setDoctorSearch] = useState("");
  const [location, setLocation] = useState("");
 const [locationMessage, setLocationMessage] = useState("");
-  return (
-    <>
-     <Header pageName="FindDoctor"
-     searchQuery={searchQuery}
-     setSearchQuery={setSearchQuery}
-     />
-
+return (
+  <>
 <section className="doctor-banner">
   <div className="doctor-intro">
     <h1>Find a Doctor</h1>
@@ -232,12 +224,10 @@ const [locationMessage, setLocationMessage] = useState("");
 {showResults && (<DoctorResults
   specialty={selectedSpecialty} onBack={()=>
     setShowResults(false)}
-    searchQuery={doctorSearch}
+    searchQuery={doctorSearch || searchQuery}
   
   />
 )}
-<Footer />
-
     </>
   );
 }

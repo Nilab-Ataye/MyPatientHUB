@@ -1,6 +1,5 @@
 
-import React from "react";
-import "/MedicineCard.css";
+import "./MedicineCard.css";
 
 function MedicineCard({ medicine }) {
   return (
