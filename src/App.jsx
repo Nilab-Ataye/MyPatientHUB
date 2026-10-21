@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Login from "./components/Login";
 import "./style.css";
 import Sidebar from "./components/sidebar";
 import Header from "./components/Header";
@@ -11,6 +12,7 @@ import MyDependents from "./components/MyDependents";
 import FindClinic from "./pages/FindClinic";
 import FindPharmacy from "./pages/FindPharmacy";
 import Settings from "./pages/Settings";
+import SignUp from "./pages/SignUp";
 
 const pageNames = {
   dashboard: "Dashboard",
@@ -23,11 +25,31 @@ const pageNames = {
 };
 
 function App() {
+  const [authPage, setAuthPage] = useState(null);
+  const [isSignedIn, setIsSignedIn] = useState(false);
   const [page, setPage] = useState("dashboard");
   const [searchQuery, setSearchQuery] = useState("");
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
 
   return (
+    <>
+    {authPage === "login" ? (
+      <Login
+        onSignIn={() => {
+          setIsSignedIn(true);
+          setAuthPage(null);
+        }}
+        onSignUp={() => setAuthPage("signup")}
+      />
+    ) : authPage === "signup" ? (
+      <SignUp
+        onSignUp={() => {
+          setIsSignedIn(true);
+          setAuthPage(null);
+        }}
+        onBackToLogin={() => setAuthPage("login")}
+      />
+    ) : (
     <div className="dashboard">
       <Sidebar
         setPage={setPage}
@@ -42,6 +64,14 @@ function App() {
           globalSearch={searchQuery}
           setGlobalSearch={setSearchQuery}
           onOpenSettings={() => setPage("settings")}
+          isSignedIn={isSignedIn}
+          onOpenLogin={() => {
+            if (isSignedIn) {
+              setPage("settings");
+            } else {
+              setAuthPage("login");
+            }
+          }}
         />
 
         {page === "dashboard" && (
@@ -73,6 +103,8 @@ function App() {
         <Footer />
       </main>
     </div>
+    )}
+    </>
   );
 }
 
