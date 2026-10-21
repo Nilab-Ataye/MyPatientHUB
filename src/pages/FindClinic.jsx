@@ -22,7 +22,7 @@ const clinics = [
   },
 ];
 
-function FindClinic({ sidebarCollapsed, onToggleSidebar, onSignOut }) {
+function FindClinic({ globalSearch = "" }) {
   const [view, setView] = useState("map");
   const [search, setSearch] = useState("");
   const [location, setLocation] = useState("");
@@ -41,10 +41,15 @@ function FindClinic({ sidebarCollapsed, onToggleSidebar, onSignOut }) {
   const [message, setMessage] = useState("");
 
   const filteredClinics = clinics.filter((clinic) => {
-    const term = search.toLowerCase();
+    const terms = `${search} ${globalSearch}`
+      .trim()
+      .toLowerCase()
+      .split(/\s+/)
+      .filter(Boolean);
+    const searchableText =
+      `${clinic.name} ${clinic.specialty} ${clinic.location}`.toLowerCase();
     const matchesSearch =
-      clinic.name.toLowerCase().includes(term) ||
-      clinic.specialty.toLowerCase().includes(term);
+      terms.every((term) => searchableText.includes(term));
 
     const matchesLocation =
       !location ||
@@ -97,55 +102,6 @@ function FindClinic({ sidebarCollapsed, onToggleSidebar, onSignOut }) {
   return (
     <div className="clinic-app">
       <div className="clinic-main">
-        <header className="clinic-header">
-          <div className="clinic-heading">
-            <div className="clinic-breadcrumb">
-              <span>⌂</span> / Findhospital
-            </div>
-            <strong>Findhospital</strong>
-          </div>
-
-          <button
-            className="clinic-menu-toggle"
-            type="button"
-            title={sidebarCollapsed ? "Expand sidebar" : "Collapse sidebar"}
-            aria-label="Toggle sidebar"
-            onClick={onToggleSidebar}
-          >
-            ☰
-          </button>
-
-          <div className="clinic-header-actions">
-            <input
-              className="clinic-header-search"
-              placeholder="⌕  Type here..."
-              aria-label="Header search"
-              onChange={(event) => setSearch(event.target.value)}
-            />
-            <button
-              className="clinic-header-button"
-              type="button"
-              onClick={onSignOut}
-            >
-              ☻ Log out
-            </button>
-            <button
-              className="clinic-header-icon"
-              title="Settings"
-              onClick={() => setMessage("Settings demo")}
-            >
-              ⚙
-            </button>
-            <button
-              className="clinic-header-icon"
-              title="Notifications"
-              onClick={() => setMessage("You have no new notifications.")}
-            >
-              ♟
-            </button>
-          </div>
-        </header>
-
         <main className="clinic-content">
           <section className="clinic-hero">
             <div className="clinic-hero-breadcrumb">
@@ -458,14 +414,6 @@ function FindClinic({ sidebarCollapsed, onToggleSidebar, onSignOut }) {
             </section>
           </div>
 
-          <footer className="clinic-footer">
-            <span>© 2026, made with ♥ by MyPIHUB for a better web.</span>
-            <div>
-              <a href="#patienthub">MyPatientHUB</a>
-              <a href="#about">About Us</a>
-              <a href="#blog">Blog</a>
-            </div>
-          </footer>
         </main>
       </div>
     </div>

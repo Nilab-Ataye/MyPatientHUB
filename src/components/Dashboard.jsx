@@ -1,5 +1,4 @@
 import '../style.css';
-import Footer from "./Footer";
 
 const cards = [
   {
@@ -19,33 +18,35 @@ const cards = [
   },
 ];
 
-function Dashboard({ onToggleSidebar, onSignOut }) {
+function Dashboard({ globalSearch = "" }) {
+  const query = globalSearch.trim().toLowerCase();
+  const terms = query.split(/\s+/).filter(Boolean);
+  const visibleCards = cards
+    .map((card) => ({
+      ...card,
+      items: card.items.filter(([label, value]) =>
+        terms.every((term) =>
+          `${label} ${value}`.toLowerCase().includes(term)
+        )
+      ),
+    }))
+    .filter(
+      (card) =>
+        !query ||
+        terms.every((term) => card.title.toLowerCase().includes(term)) ||
+        card.items.length > 0
+    );
+  const showHealthIndex = terms.every((term) =>
+    "health index 70% 3%".includes(term)
+  );
+
   return (
     <div className="dashboard-page">
       <main className="main">
-        <header className="header">
-          <div className="header-left">
-            <button className="menu-btn" type="button" onClick={onToggleSidebar} aria-label="Toggle navigation sidebar" title="Toggle navigation sidebar">☰</button>
-            <div>
-              <p className="breadcrumb"><span aria-hidden="true">⌂</span> / Dashboard</p>
-              <h3>Dashboard</h3>
-            </div>
-          </div>
-          <div className="header-right">
-            <label className="search">
-              <span aria-hidden="true">⌕</span>
-              <input type="search" placeholder="Type here..." aria-label="Search dashboard" />
-            </label>
-            <button className="logout" type="button" onClick={onSignOut}><span aria-hidden="true">◉</span><span>Log out</span></button>
-            <button className="header-icon" type="button" aria-label="Settings">⚙</button>
-            <button className="header-icon" type="button" aria-label="Notifications">♧</button>
-          </div>
-        </header>
-
         <section className="content">
           <h1>Welcome To MyPatientHUB!</h1>
           <div className="cards">
-            {cards.map((card) => (
+            {visibleCards.map((card) => (
               <article className="card" key={card.title}>
                 <h3>{card.title}</h3>
                 <div className="card-content">
@@ -57,7 +58,7 @@ function Dashboard({ onToggleSidebar, onSignOut }) {
                 {card.chart !== 'market-chart' && <button className="details" type="button">MORE DETAILS</button>}
               </article>
             ))}
-            <article className="card health-card">
+            {showHealthIndex && <article className="card health-card">
               <h3>Health Index</h3>
               <div className="health-number">70% <span>+3%</span></div>
               <div className="graph" aria-label="Health index trend">
@@ -66,12 +67,10 @@ function Dashboard({ onToggleSidebar, onSignOut }) {
                 <div className="grid-line three" />
                 <div className="health-line" />
               </div>
-            </article>
+            </article>}
           </div>
         </section>
       </main>
-
-      <Footer />
     </div>
   );
 }

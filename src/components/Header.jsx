@@ -9,11 +9,15 @@ import {
 import "./Header.css";
 
 function Header({
-   onMenuClick,
-  globalSearch, 
-setGlobalSearch}) {
+  onMenuClick,
+  globalSearch = "",
+  setGlobalSearch,
+  onSignOut,
+  onOpenSettings,
+  style,
+}) {
   return (
-    <header className="patient-header">
+    <header className="patient-header" style={style}>
       <div className="header-left">
         <h3>MyPatientHUB</h3>
       </div>
@@ -57,6 +61,7 @@ setGlobalSearch(e.target.value)
           type="button"
           aria-label="Settings"
           title="Settings"
+          onClick={onOpenSettings}
         >
           <Settings size={19} />
         </button>
@@ -64,8 +69,9 @@ setGlobalSearch(e.target.value)
         <button
           className="header-action"
           type="button"
-          aria-label="Profile"
-          title="Profile"
+          aria-label="Sign out"
+          title="Sign out"
+          onClick={onSignOut}
         >
           <UserRound size={19} />
         </button>

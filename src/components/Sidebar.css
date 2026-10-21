@@ -1,0 +1,153 @@
+.nilab-sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  min-height: 100vh;
+  padding: 20px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background: #fff;
+  transition: width 0.3s ease, padding 0.3s ease;
+}
+
+.nilab-sidebar-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 70px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #eee;
+  white-space: nowrap;
+}
+
+.nilab-sidebar-logo-icon {
+  display: flex;
+  flex: 0 0 42px;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #e90087, #7048e8);
+  color: #fff;
+  box-shadow: 0 5px 15px rgba(233, 0, 135, 0.25);
+}
+
+.nilab-sidebar-logo-text {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.nilab-sidebar-my {
+  color: red;
+}
+
+.nilab-sidebar-hub {
+  color: pink;
+}
+
+.nilab-sidebar-menu {
+  display: flex;
+  flex-direction: column;
+}
+
+.nilab-sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+  min-height: 46px;
+  margin: 5px 0;
+  padding: 11px 15px;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: #667085;
+  font: inherit;
+  text-align: left;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.nilab-sidebar-item:hover {
+  background: #f7eaf4;
+  color: blue;
+}
+
+.nilab-sidebar-item.active {
+  background: #f7eaf4;
+  color: green;
+}
+
+.nilab-sidebar-item svg {
+  flex: 0 0 22px;
+}
+
+.nilab-sidebar-help {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 75px;
+  margin-top: auto;
+  padding: 15px;
+  border-radius: 15px;
+  background: linear-gradient(135deg, pink, purple);
+  color: white;
+}
+
+.nilab-sidebar-help-icon {
+  display: flex;
+  flex: 0 0 35px;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.nilab-sidebar-help strong,
+.nilab-sidebar-help small {
+  display: block;
+}
+
+.nilab-sidebar-help strong {
+  font-size: 13px;
+}
+
+.nilab-sidebar-help small {
+  font-size: 10px;
+  opacity: 0.8;
+}
+
+.nilab-sidebar-collapsed {
+  width: 78px;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.nilab-sidebar-collapsed .nilab-sidebar-logo {
+  justify-content: center;
+}
+
+.nilab-sidebar-collapsed .nilab-sidebar-item {
+  justify-content: center;
+  padding-right: 0;
+  padding-left: 0;
+}
+
+@media (max-width: 650px) {
+  .nilab-sidebar {
+    width: 220px;
+  }
+
+  .nilab-sidebar-collapsed {
+    width: 70px;
+  }
+}

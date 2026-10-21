@@ -171,12 +171,10 @@
 // export default Settings;
 import { useState } from "react";
 import {
-  Home, Settings as SettingsIcon,
-  Menu, Search, Bell, UserCircle, FileText,
+  UserCircle, FileText,
   LockKeyhole, ShieldCheck, Monitor, Smartphone, Trash2, Eye,
   EyeOff, CheckCircle, X, ChevronRight
 } from "lucide-react";
-import Footer from "../components/Footer";
 import "./Settings.css";
 
 const settingItems = [
@@ -188,7 +186,18 @@ const settingItems = [
   { label: "Delete Account", icon: Trash2, id: "delete-account" }
 ];
 
-function Settings({ sidebarCollapsed, onToggleSidebar }) {
+const settingSearchTerms = {
+  profile: "profile patient visibility",
+  "basic-info":
+    "basic info name gender birth date email blood group location phone height weight",
+  "change-password": "change password current new confirm requirements",
+  "two-factor":
+    "two factor authentication sms security keys authenticator enabled disabled",
+  sessions: "sessions devices browser computer mobile location active",
+  "delete-account": "delete account remove irreversible",
+};
+
+function Settings({ globalSearch = "" }) {
   const [activeSetting, setActiveSetting] = useState("profile");
   const [visible, setVisible] = useState(true);
   const [showPassword, setShowPassword] = useState(false);
@@ -229,6 +238,29 @@ function Settings({ sidebarCollapsed, onToggleSidebar }) {
     authenticator: false,
     securityKey: false
   });
+  const query = globalSearch.trim().toLowerCase();
+  const matchesSection = (id) => {
+    const sectionValues = {
+      profile: `${form.firstName} ${form.lastName} patient`,
+      "basic-info": Object.values(form).join(" "),
+      "change-password": Object.values(passwords).join(" "),
+      "two-factor": Object.values(security).join(" "),
+      sessions: sessions
+        .flatMap((session) => Object.values(session))
+        .join(" "),
+      "delete-account": "delete account irreversible",
+    };
+    const values =
+      `${settingSearchTerms[id]} ${sectionValues[id]}`.toLowerCase();
+
+    return (
+      !query ||
+      query.split(/\s+/).every((term) => values.includes(term))
+    );
+  };
+  const visibleSettingItems = settingItems.filter(
+    ({ id }) => !query || matchesSection(id)
+  );
 
   const updateForm = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -307,72 +339,11 @@ function Settings({ sidebarCollapsed, onToggleSidebar }) {
   return (
     <div className="patient-app">
       {/* Main page */}
-      <div className={`page-area ${sidebarCollapsed ? "sidebar-collapsed" : ""}`}>
-        {/* Fixed header */}
-        <header className="top-header">
-          <div className="header-left">
-            <div className="breadcrumb">
-              <Home size={15} />
-              <span>/</span>
-              <span>Accountsetting</span>
-            </div>
-            <h2>Accountsetting</h2>
-          </div>
-
-          <button
-            className="header-menu-button"
-            type="button"
-            onClick={onToggleSidebar}
-            aria-label="Toggle sidebar"
-            title="Show or hide sidebar"
-          >
-            <Menu size={22} />
-          </button>
-
-          <div className="header-actions">
-            <label className="header-search">
-              <Search size={18} />
-              <input
-                type="search"
-                placeholder="Type here..."
-                onChange={(e) => {
-                  if (e.target.value.trim()) {
-                    setNotice(`Search: ${e.target.value}`);
-                  }
-                }}
-              />
-            </label>
-            <button
-              type="button"
-              className="header-action"
-              onClick={() => notify("Log out requires authentication setup.")}
-            >
-              <UserCircle size={17} />
-              <span>Log out</span>
-            </button>
-            <button
-              type="button"
-              className="icon-button"
-              title="Settings"
-              onClick={() => goToSection("profile")}
-            >
-              <SettingsIcon size={18} />
-            </button>
-            <button
-              type="button"
-              className="icon-button"
-              title="Notifications"
-              onClick={() => notify("You have no new notifications.")}
-            >
-              <Bell size={18} />
-            </button>
-          </div>
-        </header>
-
+      <div className="page-area">
         <main className="settings-layout">
           {/* Settings navigation */}
           <aside className="settings-nav">
-            {settingItems.map(({ label, icon: Icon, id }) => (
+            {visibleSettingItems.map(({ label, icon: Icon, id }) => (
               <button
                 key={id}
                 type="button"
@@ -400,9 +371,20 @@ function Settings({ sidebarCollapsed, onToggleSidebar }) {
                 </button>
               </div>
             )}
+            {query && visibleSettingItems.length === 0 && (
+              <section className="settings-card">
+                <p className="section-description">
+                  No settings match “{globalSearch}”.
+                </p>
+              </section>
+            )}
 
             {/* Profile */}
-            <section className="profile-card settings-section" id="profile">
+            <section
+              className="profile-card settings-section"
+              id="profile"
+              hidden={!matchesSection("profile")}
+            >
               <label className="profile-avatar" title="Change profile photo">
                 {profileImage ? (
                   <img src={profileImage} alt="Profile preview" />
@@ -434,7 +416,11 @@ function Settings({ sidebarCollapsed, onToggleSidebar }) {
             </section>
 
             {/* Basic information */}
-            <section className="settings-card settings-section" id="basic-info">
+            <section
+              className="settings-card settings-section"
+              id="basic-info"
+              hidden={!matchesSection("basic-info")}
+            >
               <h3>Basic Info</h3>
 
               <form onSubmit={saveBasicInfo}>
@@ -524,7 +510,11 @@ function Settings({ sidebarCollapsed, onToggleSidebar }) {
             </section>
 
             {/* Change password */}
-            <section className="settings-card settings-section" id="change-password">
+            <section
+              className="settings-card settings-section"
+              id="change-password"
+              hidden={!matchesSection("change-password")}
+            >
               <h3>Change Password</h3>
 
               <form onSubmit={updatePassword}>
@@ -579,7 +569,11 @@ function Settings({ sidebarCollapsed, onToggleSidebar }) {
             </section>
 
             {/* Two-factor authentication */}
-            <section className="settings-card settings-section" id="two-factor">
+            <section
+              className="settings-card settings-section"
+              id="two-factor"
+              hidden={!matchesSection("two-factor")}
+            >
               <div className="section-heading">
                 <h3>Two-factor authentication</h3>
                 <span className={`status-badge ${security.smsEnabled ? "enabled" : "disabled"}`}>
@@ -640,7 +634,11 @@ function Settings({ sidebarCollapsed, onToggleSidebar }) {
             </section>
 
             {/* Sessions */}
-            <section className="settings-card settings-section" id="sessions">
+            <section
+              className="settings-card settings-section"
+              id="sessions"
+              hidden={!matchesSection("sessions")}
+            >
               <h3>Sessions</h3>
               <p className="section-description">
                 This is a list of devices that have logged into your account.
@@ -686,7 +684,11 @@ function Settings({ sidebarCollapsed, onToggleSidebar }) {
             </section>
 
             {/* Delete account */}
-            <section className="settings-card danger-card settings-section" id="delete-account">
+            <section
+              className="settings-card danger-card settings-section"
+              id="delete-account"
+              hidden={!matchesSection("delete-account")}
+            >
               <h3>Delete Account</h3>
               <p>
                 Deleting your account is a serious action. Make sure you understand
@@ -711,7 +713,6 @@ function Settings({ sidebarCollapsed, onToggleSidebar }) {
               </button>
             </section>
 
-            <Footer />
           </div>
         </main>
       </div>

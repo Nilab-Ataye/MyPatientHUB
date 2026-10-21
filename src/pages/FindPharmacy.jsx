@@ -1,7 +1,6 @@
 
 import { useMemo, useState } from "react";
 import PharmacyTable from "../components/PharmacyTable";
-import Footer from "../components/Footer";
 import "./FindPharmacy.css";
 
 const pharmacyData = [
@@ -63,12 +62,9 @@ const pharmacyData = [
 
 export default function Pharmacyplace({
   sidebarCollapsed,
-  onToggleSidebar,
-  onSignOut,
+  globalSearch,
+  setGlobalSearch,
 }) {
-  // سرچ عمومی در بالای صفحه
-  const [globalSearch, setGlobalSearch] = useState("");
-
   // سرچ دوا و دواخانه
   const [medicineSearch, setMedicineSearch] = useState("");
 
@@ -104,79 +100,6 @@ export default function Pharmacyplace({
   return (
     <div className={`pharmacy-app ${sidebarCollapsed ? "sidebar-small" : ""}`}>
       <main className="pharmacy-main">
-        <header className="topbar">
-          <div className="page-heading">
-            <div className="breadcrumb">
-              <span>⌂</span>
-              <span>/</span>
-              <span>Pharmacyplace</span>
-            </div>
-
-            <h2>Pharmacyplace</h2>
-          </div>
-
-          <button
-            className="menu-toggle"
-            type="button"
-            onClick={onToggleSidebar}
-            aria-label="Toggle sidebar"
-            title="Toggle sidebar"
-          >
-            ☰
-          </button>
-
-          <div className="topbar-actions">
-            <label className="global-search">
-              <span>⌕</span>
-
-              <input
-                type="search"
-                placeholder="Type here..."
-                value={globalSearch}
-                onChange={(event) =>
-                  setGlobalSearch(event.target.value)
-                }
-              />
-
-              {globalSearch && (
-                <button
-                  type="button"
-                  onClick={() => setGlobalSearch("")}
-                  aria-label="Clear global search"
-                >
-                  ×
-                </button>
-              )}
-            </label>
-
-            <button
-              type="button"
-              className="header-button logout-button"
-              onClick={onSignOut}
-            >
-              ◉ Log out
-            </button>
-
-            <button
-              type="button"
-              className="header-button header-icon"
-              title="Settings"
-              onClick={() => alert("Settings")}
-            >
-              ⚙
-            </button>
-
-            <button
-              type="button"
-              className="header-button header-icon"
-              title="Notifications"
-              onClick={() => alert("Notifications")}
-            >
-              ♟
-            </button>
-          </div>
-        </header>
-
         <section className="pharmacy-content">
           <div className="section-header">
             <h3>Search Pharmacies for Medicines</h3>
@@ -272,7 +195,6 @@ export default function Pharmacyplace({
         </section>
         <PharmacyTable
         globalSearch={globalSearch}/>
-        <Footer/>
       </main>
     </div>
   );
